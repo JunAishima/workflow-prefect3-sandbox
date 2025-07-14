@@ -29,8 +29,8 @@ push:
 
 pull:
   - prefect.deployments.steps.git_clone:
-      repository: https://github.com/NSLS2/workflow-prefect3-sandbox.git
-      branch: main
+      repository: https://github.com/junaishima/workflow-prefect3-sandbox.git
+      branch: update-nsls2-name-add-tiled-api-key-handling
 
 deployments:
   - name: test-workflow-prefect3-sandbox-deploy
@@ -43,4 +43,7 @@ deployments:
       job_variables:
         image: ghcr.io/nsls2/workflow-prefect3-sandbox:main
         network_mode: host
+        volumes:
+          - /nsls2/software/etc/tiled:/etc/tiled
+
       name: tst-work-pool-docker
