@@ -4,7 +4,7 @@ import sys
 from time import sleep
 
 from prefect import flow, get_run_logger, task
-from tiled.client import from_uri
+from tiled.client import from_profile
 
 from data_validation import general_data_validation
 
