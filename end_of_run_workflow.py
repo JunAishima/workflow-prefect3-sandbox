@@ -18,8 +18,7 @@ def log_completion():
 @flow(log_prints=True)
 def end_of_run_workflow(stop_doc):
     logger = get_run_logger()
-    tiled_client = from_profile("tst")
-    #  TODO get a stop doc to test with
+    tiled_client = from_profile("nsls2")
     logger.info("testing, adding something new to the end_of_run_workflow")
     print("duplicate - testing, adding something new to the end_of_run_workflow")
     logger.info(f"stop doc: {stop_doc}")
