@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+import subprocess
 import sys
 from time import sleep
 
@@ -18,8 +20,10 @@ def log_completion():
 @flow(log_prints=True)
 def end_of_run_workflow(stop_doc):
     logger = get_run_logger()
-    # tiled_client = from_profile("nsls2")
-    tiled_client = from_uri("https://tiled-demo.blueskyproject.io")
+    print(f"TILED_API_KEY: {os.environ['TILED_API_KEY']} TILED_SITE_PROFILES: {os.environ['TILED_SITE_PROFILES']}")
+    result = subprocess.run(f"ls $TILED_SITE_PROFILES")
+    print(result.stdout)
+    tiled_client = from_profile("nsls2")
     logger.info("testing, adding something new to the end_of_run_workflow")
     print("duplicate - testing, adding something new to the end_of_run_workflow")
     logger.info(f"stop doc: {stop_doc}")
