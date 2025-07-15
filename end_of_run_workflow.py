@@ -37,7 +37,6 @@ def end_of_run_workflow(stop_doc):
 
 if __name__ == "__main__":
     print("end of run workflow")  # noqa: T201
-    args = sys.argv
     print(f"{len(args)}, {args}")  # noqa: T201
     end_of_run_workflow({"stop_doc": args[1]})
     sleep(100)
