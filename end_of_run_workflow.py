@@ -18,8 +18,6 @@ def log_completion():
 @flow(log_prints=True)
 def end_of_run_workflow(stop_doc):
     logger = get_run_logger()
-    import subprocess
-    a=subprocess.run(["echo testing"])
     import os
     print(f"TILED_API_KEY: {os.environ['TILED_API_KEY'][:3]}")
     a=subprocess.run(["ls","/nsls2/software/etc/tiled/profiles"])
