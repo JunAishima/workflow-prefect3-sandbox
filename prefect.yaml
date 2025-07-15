@@ -29,8 +29,8 @@ push:
 
 pull:
   - prefect.deployments.steps.git_clone:
-      repository: https://github.com/junaishima/workflow-prefect3-sandbox.git
-      branch: update-nsls2-name-add-tiled-api-key-handling
+      repository: https://github.com/NSLS2/workflow-prefect3-sandbox.git
+      branch: main
 
 deployments:
   - name: test-workflow-prefect3-sandbox-deploy
