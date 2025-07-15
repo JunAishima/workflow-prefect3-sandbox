@@ -1,8 +1,8 @@
 from __future__ import annotations
 
 import os
-import subprocess
 import sys
+import subprocess
 from time import sleep
 
 from prefect import flow, get_run_logger, task
@@ -21,7 +21,7 @@ def log_completion():
 def end_of_run_workflow(stop_doc):
     logger = get_run_logger()
     print(f"TILED_API_KEY: {os.environ['TILED_API_KEY'][:3]}")
-    a=subprocess.run(["ls","/etc/tiled/profiles"])
+    subprocess.run(["ls", "/etc/tiled/profiles"])
     tiled_client = from_profile("nsls2")
     logger.info("testing, adding something new to the end_of_run_workflow")
     print("duplicate - testing, adding something new to the end_of_run_workflow")
@@ -35,6 +35,7 @@ def end_of_run_workflow(stop_doc):
 
 
 if __name__ == "__main__":
+    args = sys.argv
     print("end of run workflow")  # noqa: T201
     print(f"{len(args)}, {args}")  # noqa: T201
     end_of_run_workflow({"stop_doc": args[1]})
