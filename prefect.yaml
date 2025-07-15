@@ -34,7 +34,7 @@ pull:
 
 deployments:
   - name: test-workflow-prefect3-sandbox-deploy
-    version: null
+    version: 0.0.1
     description: Deploy the updated Docker image
     entrypoint: end_of_run_workflow.py:end_of_run_workflow
     parameters: {}
@@ -45,5 +45,7 @@ deployments:
         network_mode: host
         volumes:
           - /nsls2/software/etc/tiled:/etc/tiled
+        env:
+          TILED_API_KEY: "{{ prefect.blocks.secret.tiled-tst-api-key }}"
 
       name: tst-work-pool-docker
