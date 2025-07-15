@@ -1,5 +1,7 @@
 from __future__ import annotations
 
+import os
+import subprocess
 import sys
 from time import sleep
 
@@ -18,7 +20,6 @@ def log_completion():
 @flow(log_prints=True)
 def end_of_run_workflow(stop_doc):
     logger = get_run_logger()
-    import os
     print(f"TILED_API_KEY: {os.environ['TILED_API_KEY'][:3]}")
     a=subprocess.run(["ls","/nsls2/software/etc/tiled/profiles"])
     tiled_client = from_profile("nsls2")
