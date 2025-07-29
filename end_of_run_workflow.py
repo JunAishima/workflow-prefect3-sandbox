@@ -10,7 +10,7 @@ def log_completion():
     logger.info("Complete")
 
 
-@flow
+@flow(log_prints=True)
 def end_of_run_workflow(stop_doc):
     uid = stop_doc["run_start"]
     hello_world()
