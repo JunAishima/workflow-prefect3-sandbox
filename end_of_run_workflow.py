@@ -18,3 +18,11 @@ def end_of_run_workflow(stop_doc):
     # long_flow(iterations=100, sleep_length=10)
     log_completion()
 
+
+if __name__ == "__main__":
+    args = sys.argv
+    print("end of run workflow")  # noqa: T201
+    print(f"{len(args)}, {args}")  # noqa: T201
+    end_of_run_workflow({"stop_doc": args[1]})
+    sleep(100)
+    print("after sleep")  # noqa: T201
