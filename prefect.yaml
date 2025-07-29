@@ -9,7 +9,7 @@ build:
   - prefect_docker.deployments.steps.build_docker_image:
       id: build-image
       requires: prefect-docker>0.6.0
-      image_name: ghcr.io/nsls2/workflow-prefect3-sandbox
+      image_name: ghcr.io/nsls2/tst-workflows-prefect3
       tag: "{{ get-commit-hash.stdout }}"
       dockerfile: Dockerfile
       additional_tags:
@@ -29,11 +29,11 @@ push:
 
 pull:
   - prefect.deployments.steps.git_clone:
-      repository: https://github.com/NSLS2/workflow-prefect3-sandbox.git
+      repository: https://github.com/NSLS2/tst-workflows-prefect3.git
       branch: main
 
 deployments:
-  - name: test-workflow-prefect3-sandbox-deploy
+  - name: tst-workflow-prefect3-deploy
     version: 0.0.1
     description: Deploy the updated Docker image
     entrypoint: end_of_run_workflow.py:end_of_run_workflow
@@ -41,7 +41,7 @@ deployments:
     schedule: {}
     work_pool:
       job_variables:
-        image: ghcr.io/nsls2/workflow-prefect3-sandbox:main
+        image: ghcr.io/nsls2/tst-workflows-prefect3:main
         network_mode: host
         volumes:
           - /nsls2/software/etc/tiled:/etc/tiled
