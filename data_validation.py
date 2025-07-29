@@ -21,6 +21,6 @@ def read_all_streams(uid, beamline_acronym):
     logger.info(f"{elapsed_time = }")
 
 
-@flow
+@flow(log_prints=True)
 def data_validation(uid):
     read_all_streams(uid, beamline_acronym="tst")
