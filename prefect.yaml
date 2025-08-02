@@ -45,6 +45,8 @@ deployments:
         network_mode: host
         volumes:
           - /nsls2/software/etc/tiled:/etc/tiled
+          - "/nsls2/data/tst/proposals/2025-2:/nsls2/data/tst/proposals/2025-2"
+        userns: "keep-id:uid=402974,gid=402974"
         env:
           TILED_API_KEY: "{{ prefect.blocks.secret.tiled-tst-api-key }}"
 
